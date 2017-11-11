@@ -262,11 +262,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     return count;
   }
 
-  function calculateSplices(current, previous) {
-    return calcSplices(current, 0, current.length, previous, 0,
-                            previous.length);
-  }
-
   function equals(currentValue, previousValue) {
     return currentValue === previousValue;
   }
@@ -308,7 +303,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * the array of removed items from this location; `addedCount` the number
      * of items added at this location.
      */
-    calculateSplices
+    calculateSplices(current, previous) {
+      return calcSplices(
+          current, 0, current.length, previous, 0, previous.length);
+    }
   };
 
 })();
